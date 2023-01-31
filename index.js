@@ -2,7 +2,7 @@ const http = require('http');
 const fetch = require('node-fetch');
 
 http.createServer(async function (req, res) {
-    
-    res.write(JSON.stringify(req));
+    console.log(req);
+    res.write(JSON.stringify({result: 1}));
     res.end();
 }).listen(process.env.PORT || 3000);
