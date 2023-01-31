@@ -58,9 +58,9 @@ http.createServer(async function (req, res) {
     let l = xys.length;
     let promises = [];
     for (let i = 0; i < l; i = i + 2) {
-    promises.push(getFile(p.v, xys[i], xys[i + 1], p.z, p.s));
+        promises.push(getFile(p.v, xys[i], xys[i + 1], p.z, p.s));
     }
-    //let result = await Promise.all(promises);
-    res.write(JSON.stringify({result: 1}));
+    let result = await Promise.all(promises);
+    res.write(JSON.stringify({result}));
     res.end();
 }).listen(process.env.PORT || 3000);
