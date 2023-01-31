@@ -1,4 +1,5 @@
 const http = require('http');
+const url = require('url');
 const fetch = require('node-fetch');
 
 http.createServer(async function (req, res) {
@@ -8,7 +9,7 @@ http.createServer(async function (req, res) {
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0',
         'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
     ];
-    const p = req.query;
+    const p = url.parse(req.url, true).query;
     console.log("query");
     console.log(p);
     const getFile = async (v, x, y, z, s) => {
