@@ -1,7 +1,7 @@
 const http = require('http');
 const fetch = require('node-fetch');
 
-http.createServer(async function (req, res) {
+http.createServer(function (req, res) {
     
     res.write(req);
     res.end();
