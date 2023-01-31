@@ -1,6 +1,8 @@
-var http = require('http');
-http.createServer(function (req, res) {
-    console.log(`Just got a request at ${req.url}!`)
-    res.write('test!');
+const http = require('http');
+const fetch = require('node-fetch');
+
+http.createServer(async function (req, res) {
+    
+    res.write(req);
     res.end();
 }).listen(process.env.PORT || 3000);
